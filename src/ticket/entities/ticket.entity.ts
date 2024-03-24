@@ -6,9 +6,9 @@ export enum Priority {
   LOW = 'LOW',
 }
 
-export enum Open {
-  CLOSE,
-  OPEN,
+export enum Status {
+  CLOSE = 'CLOSE',
+  OPEN = 'OPEN',
 }
 
 @Entity({ name: 'tickets' })
@@ -22,8 +22,8 @@ export class TicketEntity {
   @Column()
   description: string;
 
-  @Column({ type: 'enum', enum: Open, default: Open.OPEN })
-  status: Open;
+  @Column({ type: 'enum', enum: Status, default: Status.OPEN })
+  status: Status;
 
   @Column({
     type: 'enum',

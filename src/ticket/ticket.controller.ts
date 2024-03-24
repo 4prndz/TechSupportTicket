@@ -1,4 +1,5 @@
 import { TicketEntity } from '@app/ticket/entities/ticket.entity';
+import { TicketsResponse } from '@app/ticket/types/ticketResponse.interface';
 import {
   Body,
   Controller,
@@ -7,6 +8,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
@@ -25,8 +27,8 @@ export class TicketController {
   }
 
   @Get()
-  findAll(): Promise<TicketEntity[]> {
-    return this.ticketService.findAll();
+  findAll(@Query() query: any): Promise<TicketsResponse> {
+    return this.ticketService.findAll(query);
   }
 
   @Get(':id')

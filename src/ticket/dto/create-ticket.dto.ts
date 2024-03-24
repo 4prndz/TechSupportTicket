@@ -1,4 +1,4 @@
-import { Open, Priority } from '@app/ticket/entities/ticket.entity';
+import { Priority, Status } from '@app/ticket/entities/ticket.entity';
 import { IsNotEmpty } from 'class-validator';
 
 export class CreateTicketDto {
@@ -8,7 +8,7 @@ export class CreateTicketDto {
   @IsNotEmpty()
   readonly description: string;
 
-  readonly status: Open;
+  readonly status: Status;
 
   readonly priority: Priority;
 
