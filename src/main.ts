@@ -1,3 +1,6 @@
+if (!process.env.IS_TS_NODE) {
+  require('module-alias/register');
+}
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { Logger } from 'nestjs-pino';

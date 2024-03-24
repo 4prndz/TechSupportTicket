@@ -26,6 +26,7 @@
     "@nestjs/swagger": "^7.3.0",
     "@nestjs/typeorm": "^10.0.2",
     "dotenv": "^16.4.5",
+    "module-alias": "^2.2.3",
     "nestjs-pino": "^4.0.0",
     "pg": "^8.11.3",
     "pino-http": "^9.0.0",
@@ -74,5 +75,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "_moduleAliases": {
+    "@app": "./dist"
   }
 }
