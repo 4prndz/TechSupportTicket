@@ -1,3 +1,4 @@
+import { TicketEntity } from '@app/ticket/entities/ticket.entity';
 import {
   Body,
   Controller,
@@ -19,27 +20,30 @@ export class TicketController {
 
   @Post()
   @UsePipes(new ValidationPipe())
-  create(@Body() createTicketDto: CreateTicketDto) {
+  create(@Body() createTicketDto: CreateTicketDto): Promise<TicketEntity> {
     return this.ticketService.create(createTicketDto);
   }
 
   @Get()
-  findAll() {
+  findAll(): Promise<TicketEntity[]> {
     return this.ticketService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: string): Promise<TicketEntity> {
     return this.ticketService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTicketDto: UpdateTicketDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateTicketDto: UpdateTicketDto,
+  ): Promise<TicketEntity> {
     return this.ticketService.update(+id, updateTicketDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: string): Promise<TicketEntity> {
     return this.ticketService.remove(+id);
   }
 }
